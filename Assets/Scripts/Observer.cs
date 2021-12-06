@@ -7,14 +7,20 @@ public class Observer : MonoBehaviour
     public Transform player;
     public GameEnding gameEnding;
 
+    bool m_IsPlayerCaught;
     bool m_IsPlayerInRange;
-
+    
     void OnTriggerEnter(Collider other)
     {
         if (other.transform == player)
         {
             m_IsPlayerInRange = true;
         }
+    }
+
+    public void CaughtPlayer()
+    {
+        m_IsPlayerCaught = true;
     }
 
     void OnTriggerExit(Collider other)
@@ -37,7 +43,7 @@ public class Observer : MonoBehaviour
             {
                 if (raycastHit.collider.transform == player)
                 {
-
+                    gameEnding.CaughtPlayer();
                 }
             }
         }
