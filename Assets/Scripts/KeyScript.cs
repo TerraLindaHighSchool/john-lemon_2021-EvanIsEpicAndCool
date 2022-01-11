@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class KeyScript : MonoBehaviour
 {
-      
- void OnCollisionEnter(Collision collision)
+
+    public GameObject DestroyableWalls;
+
+ void OnTriggerEnter(Collider other)
     {
 
-        if (collision.gameObject.tag == "Player")
-        {
-            //Destroy(gameObject.RemovableWalls);
-        }
-
+        Destroy(DestroyableWalls);
+        
     }
 }

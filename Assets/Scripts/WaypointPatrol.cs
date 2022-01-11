@@ -7,6 +7,8 @@ public class WaypointPatrol : MonoBehaviour
 {
     public NavMeshAgent navMeshAgent;
     public Transform[] waypoints;
+    public GameObject PressurePlate;
+    public float acceleration = 8;
 
     int m_CurrentWaypointIndex;
 
@@ -22,5 +24,10 @@ public class WaypointPatrol : MonoBehaviour
             m_CurrentWaypointIndex = (m_CurrentWaypointIndex + 1) % waypoints.Length;
             navMeshAgent.SetDestination(waypoints[m_CurrentWaypointIndex].position);
         }
+    }
+
+    private void OnTriggerEnter(GameObject PressurePlate)
+    {
+        print("bruh");
     }
 }
